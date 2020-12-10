@@ -15,7 +15,7 @@ public class Note extends DatabaseObject{
     }
 
     public void setDescription(String description) {
-        description = description;
+        this.description = description;
     }
 
     public String getStage() {
@@ -23,7 +23,7 @@ public class Note extends DatabaseObject{
     }
 
     public void setStage(String stage) {
-        stage = stage;
+        this.stage = stage;
     }
 
     public Date getReminderDatetime() {

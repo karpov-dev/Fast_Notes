@@ -7,13 +7,21 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import by.kitty.fastnotes.Adapters.RecyclerViewAdapters.NotesAdapter;
+import by.kitty.fastnotes.Model.Note;
+
 public class MainActivity extends AppCompatActivity {
+    List<Note> noteList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +29,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        initData();
+        RecyclerView notesViewList = (RecyclerView) findViewById(R.id.notes_list);
+        NotesAdapter notesAdapter = new NotesAdapter(this, this.noteList);
+        notesViewList.setAdapter(notesAdapter);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -47,5 +60,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void initData() {
+        noteList.add(new Note("1", "Hello, World!", "Hello fucking world"));
+        noteList.add(new Note("2", "Test Note!", "Fucking test note"));
+        noteList.add(new Note("3", "Last Element", "fuck"));
     }
 }

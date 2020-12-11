@@ -10,6 +10,10 @@ public class Note extends DatabaseObject{
     private String folderId;
     private String customizationId;
 
+    public Note(String id) {
+        super(id);
+    }
+
     public String getDescription() {
         return description;
     }

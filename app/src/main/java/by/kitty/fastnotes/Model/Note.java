@@ -14,6 +14,30 @@ public class Note extends DatabaseObject{
         super(id);
     }
 
+    public Note(String id, String name) {
+        super(id, name);
+    }
+
+    public Note(String id, String name, String description) {
+        super(id, name);
+        this.description = description;
+    }
+
+    public Note(String id, String name, String description, String stage) {
+        this(id, name, description);
+        this.stage = stage;
+    }
+
+    public Note(String id, String name, String description, String stage, Integer priority) {
+        this(id, name, description, stage);
+        this.priority = priority;
+    }
+
+    public Note(String id, String name, String description, String stage, Integer priority, Date remainder) {
+        this(id, name, description, stage, priority);
+        this.reminderDatetime = remainder;
+    }
+
     public String getDescription() {
         return description;
     }
